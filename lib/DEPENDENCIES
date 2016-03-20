@@ -1,0 +1,23 @@
+MAIN: lib/regex-railroad-diagram
+
+regex-railroad-diagram.coffee
+-- depends on railroad-diagram-element.coffee
+
+railroad-diagram-element.coffee
+-- depends on regex-to-railroad.coffee
+
+regex-to-railroad.coffee
+-- depends on railroad-diagrams
+
+
+***
+
+Q how to show the chart?
+
+checkForRegExp()
+  @element.showDiagram()
+  create RailroadDiagramElement()
+
+  class RailroadDiagramElement extends HTMLElement
+    initialize: (@model) ->
+      @panel = atom.workspace.addBottomPanel item: this, visible: false
